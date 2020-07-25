@@ -1,24 +1,21 @@
-from app import URLShort
-from datetime import datetime
-import time
+from app import URLShort, shortURLFromFile 
+import os, time
 API = input("Enter Your API Key: ")
-workspace = input("Enter Workspace if or needed press [Enter] Key: ")
+workspace = input("Enter Workspace if needed or press [Enter] Key: ")
 
 print("Choose method via File [F] or Console [C]")
 _method = True if input().lower() == "f" else False
 
-# if _method:
-#     filepath = input("Input FileName if not in same folder \nalso enter with absolute path :\n")
-#     with open(filepath, 'r') as file:
-#         allURLs = file.readlines()
-#         allURLs = [x.rstrip() for x in allURLs]
-#         exportFilename = int(datetime.utcnow().timestamp())
-#         with open(f"{exportFilename}.csv", 'a') as file:
-#                 file.write("Original URL, Short URL\n")
-#         for URL in allURLs:
-#             newURL = URLShort(API, URL, workspace)
-#             with open(f"{exportFilename}.csv", 'a') as file:
-#                 file.write(f"{newURL[0]}, {newURL[1]}\n")
+if _method:
+    filepath = input("Input FileName if not in same folder \nalso enter with absolute path :\n")
+    try:
+        filename = shortURLFromFile(filepath, API, workspace)
+    except:
+        print("Workspace Key might be Broken, Trying for Default workspace")
+        filename = shortURLFromFile(filepath, API)
+    finally:
+        print(f"{os.getcwd()} is your Directory and {filename}.csv")
+        print("is the filename for Short URLs in your Directory.")
 
 while not _method:
     oURL  = input("Long URL: ")

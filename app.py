@@ -36,9 +36,4 @@ def shortURLFromFile(filepath, APIKey, workspaceID = None):
             shortURL = URLShort(APIKey, URL, workspaceID)
             with open(exFilename, "a") as export:
                 export.write(f"{shortURL[0]}, {shortURL[1]}\n")
-
-
-shortURLFromFile(r"C:\Users\vsrme\Desktop\NewTextDocument.txt", "c7e346907f8248bf82e1200d19b7f35d")
-# myAPIKey = "c7e346907f8248bf82e1200d19b7f35d"
-# workspace = "c692ec9e06204f10adf073b9bca0e577"
-# C:\Users\vsrme\Desktop\NewTextDocument.txt
+    return exFilename        
