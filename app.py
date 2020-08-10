@@ -39,4 +39,3 @@ def shortURLFromFile(filepath, APIKey, workspaceID = None):
     return exFilename        
     
     
-# this is a test
