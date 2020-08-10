@@ -37,3 +37,6 @@ def shortURLFromFile(filepath, APIKey, workspaceID = None):
             with open(exFilename, "a") as export:
                 export.write(f"{shortURL[0]}, {shortURL[1]}\n")
     return exFilename        
+    
+    
+# this is a test
